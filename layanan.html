@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layanan Market dan Pendaftaran Sertifikasi</title>
+  <style>
+    /* Reset & basic */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff7f5;
+      color: #6b3e05;
+    }
+    a {
+      text-decoration: none;
+      color: #a75a1b;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: #fce6e1;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    header a {
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #a75a1b;
+      font-weight: 700;
+    }
+
+    /* Grid layanan */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(167,90,27,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(167,90,27,0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-content h3 {
+      font-size: 1.3rem;
+      margin: 0 0 10px 0;
+      color: #6b3e05;
+    }
+    .card-content p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #7f4f10;
+      margin-bottom: 20px;
+    }
+    .btn {
+      align-self: flex-start;
+      padding: 10px 18px;
+      background-color: #a75a1b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #7f3f0d;
+    }
+
+    /* Form pendaftaran */
+    .registration {
+      max-width: 600px;
+      margin: 60px auto 80px;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(167,90,27,0.2);
+    }
+    .registration h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #a75a1b;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .registration form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .registration label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #6b3e05;
+    }
+    .registration input, 
+    .registration select {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1.5px solid #a75a1b;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .registration input:focus,
+    .registration select:focus {
+      outline: none;
+      border-color: #7f3f0d;
+    }
+    .registration button {
+      margin-top: 10px;
+      padding: 12px;
+      background-color: #a75a1b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .registration button:hover {
+      background-color: #7f3f0d;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        gap: 15px;
+        font-size: 14px;
+      }
+      .registration {
+        padding: 20px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#market">Market Desain</a>
+    <a href="#sertifikasi">Pendaftaran Sertifikasi</a>
+    <a href="#kontak">Kontak</a>
+    <a href="index.html">Beranda</a>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title" id="market">Market Penjualan Desain Codingan</h2>
+    <div class="services-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Desain Website Modern" />
+        <div class="card-content">
+          <h3>Desain Website Modern</h3>
+          <p>Template website responsif dengan UX/UI modern yang siap pakai untuk bisnis dan portfolio.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Desain Website Modern!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Codingan Aplikasi Mobile" />
+        <div class="card-content">
+          <h3>Codingan Aplikasi Mobile</h3>
+          <p>Proyek coding aplikasi Android & iOS siap pakai dengan fitur lengkap dan dokumentasi.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Codingan Aplikasi Mobile!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://venngage-wordpress.s3.amazonaws.com/uploads/2021/05/Email-Template-Blog-Header.png" alt="Template Email Profesional" />
+        <div class="card-content">
+          <h3>Template Email Profesional</h3>
+          <p>Desain email marketing menarik, mudah disesuaikan, dan kompatibel dengan berbagai platform.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Template Email Profesional!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <!-- Tambahan 5 produk digital lainnya -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Plugin WordPress SEO" />
+        <div class="card-content">
+          <h3>Plugin WordPress SEO</h3>
+          <p>Plugin SEO lengkap untuk WordPress yang mudah digunakan dan meningkatkan peringkat pencarian situs Anda.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Plugin WordPress SEO!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80" alt="Template Portfolio Kreatif" />
+        <div class="card-content">
+          <h3>Template Portfolio Kreatif</h3>
+          <p>Template untuk menampilkan portfolio dengan desain kreatif dan interaktif bagi para freelancer dan seniman.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Template Portfolio Kreatif!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Skrip Otomatisasi Tugas" />
+        <div class="card-content">
+          <h3>Skrip Otomatisasi Tugas</h3>
+          <p>Skrip otomatisasi menggunakan Python untuk mempercepat berbagai tugas rutin di kantor dan bisnis digital.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Skrip Otomatisasi Tugas!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80" alt="Template Dashboard Admin" />
+        <div class="card-content">
+          <h3>Template Dashboard Admin</h3>
+          <p>Template dashboard admin yang responsif dan kaya fitur untuk digunakan pada berbagai proyek aplikasi web.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Template Dashboard Admin!')">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://www.kodingakademi.id/wp-content/uploads/2022/05/program-code-computer-display-magnifying-glass-close-up-edit.jpg" alt="Video Tutorial Coding Kompleks" />
+        <div class="card-content">
+          <h3>Video Tutorial Coding Kompleks</h3>
+          <p>Video panduan lengkap untuk mempelajari teknik coding kompleks dan tips pengembangan aplikasi berkualitas.</p>
+          <button class="btn" onclick="alert('Terima kasih, Anda tertarik dengan Video Tutorial Coding Kompleks!')">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="registration" id="sertifikasi">
+      <h2>Daftar Sertifikasi Belajar</h2>
+      <form onsubmit="event.preventDefault(); alert('Terima kasih, pendaftaran Anda berhasil!'); this.reset();">
+        <label for="nama">Nama Lengkap</label>
+        <input id="nama" name="nama" type="text" placeholder="Masukkan nama lengkap" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Masukkan email aktif" required />
+
+        <label for="program">Program Sertifikasi</label>
+        <select id="program" name="program" required>
+          <option value="" disabled selected>Pilih program sertifikasi</option>
+          <option value="web_design">Sertifikasi Web Design</option>
+          <option value="mobile_dev">Sertifikasi Mobile Development</option>
+          <option value="digital_marketing">Sertifikasi Digital Marketing</option>
+        </select>
+
+        <button type="submit">Daftar Sekarang</button>
+      </form>
+    </section>
+
+    <section id="kontak" style="text-align:center; padding: 40px 10px; color: #6b3e05;">
+      <h2>Kontak Kami</h2>
+      <p>Email: support@marketcodingan.id</p>
+      <p>Telepon: +62 882-1207-3466</p>
+      <p>Alamat: Jl. cilegon timur, BANTEN</p>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontak Julia Sindoro</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7f2ec;
+      color: #9b4d17;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .contact-container {
+      background: white;
+      border-radius: 20px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 30px rgb(155 77 23 / 0.2);
+      padding: 2rem 2.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #9b4d17;
+    }
+
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #8a4a13;
+      font-size: 1rem;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 2px solid #9b4d17;
+      border-radius: 12px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #f4843b;
+      outline: none;
+    }
+
+    form button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #9b4d17;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    form button:hover {
+      background-color: #f4843b;
+    }
+
+    .btn-back {
+      margin-top: 1rem;
+      display: block;
+      width: max-content;
+      border: 2px solid #9b4d17;
+      color: #9b4d17;
+      padding: 0.6rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      background-color: transparent;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    .btn-back:hover {
+      background-color: #9b4d17;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="contact-container" role="main" aria-label="Form Kontak Julia Sindoro">
+    <h1>Hubungi Saya</h1>
+    <form action="#" method="post" novalidate>
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required />
+
+      <label for="message">Pesan</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda" required></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <a href="index.html" class="btn-back" aria-label="Kembali ke Beranda">Kembali ke Beranda</a>
+  </main>
+</body>
+
+</html>

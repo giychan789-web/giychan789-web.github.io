@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anggi oktaviani - UTS semester 3</title>
+  <style>
+    /* Reset dan dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7f2ec;
+      color: #9b4d17; /* coklat hangat */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container utama */
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Menu Navigasi */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #9b4d17;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f4843b;
+    }
+
+    /* Kolom kiri teks */
+    .content-left {
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .content-left h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .content-left p {
+      font-weight: 500;
+      font-size: 1.13rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      color: #8a4a13;
+    }
+
+    /* Tombol ajakan */
+    .btn-talk {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #9b4d17;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid #9b4d17;
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn-talk:hover {
+      background-color: #9b4d17;
+      color: #fff;
+    }
+
+    /* Icon panah bawah di tombol */
+    .btn-talk svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-talk:hover svg {
+      transform: translateY(4px);
+    }
+
+    /* Kolom kanan foto */
+    .content-right {
+      flex: 1;
+      max-width: 480px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgb(155 77 23 / 0.3);
+    }
+
+    .content-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        position: static;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-left, .content-right {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .content-left {
+        order: 2;
+        text-align: center;
+      }
+
+      .content-right {
+        order: 1;
+        width: 280px;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+      }
+
+      .content-left h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Tambahan untuk bagian MI1624 dengan ikon draggable */
+    .mi1624-container {
+      position: relative;
+      width: 800px; /* Diperbesar untuk akomodasi pencar */
+      height: 600px; /* Diperbesar untuk akomodasi pencar */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto; /* Tengah di section */
+    }
+
+    .mi1624-text {
+      font-size: 48px;
+      font-weight: bold;
+      color: #6b3e05;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .mi1624-icon {
+      position: absolute;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #6b3e05;
+      box-shadow: 0 0 10px rgba(107, 62, 5, 0.2);
+      cursor: grab;
+      z-index: 2;
+      transition: none;
+      animation: float 4s ease-in-out infinite, sway 6s ease-in-out infinite, scatter 8s ease-in-out infinite;
+    }
+
+    .mi1624-icon:active {
+      cursor: grabbing;
+      animation-play-state: paused; /* Pause animasi saat drag */
+    }
+
+    .mi1624-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Animasi keyframe */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px); }
+      25% { transform: translateX(20px); }
+      75% { transform: translateX(-20px); }
+    }
+
+    @keyframes scatter {
+      0%, 100% { transform: translate(0px, 0px); }
+      25% { transform: translate(30px, -20px); }
+      50% { transform: translate(-30px, 20px); }
+      75% { transform: translate(20px, 30px); }
+    }
+
+    /* Ukuran berbeda untuk setiap ikon */
+    #icon1 {
+      width: 250px;
+      height: 250px;
+      animation-delay: 0s;
+    }
+
+    #icon2 {
+      width: 300px;
+      height: 300px;
+      animation-delay: 0.5s;
+    }
+
+    #icon3 {
+      width: 200px;
+      height: 200px;
+      animation-delay: 1s;
+    }
+
+    #icon4 {
+      width: 200px;
+      height: 200px;
+      animation-delay: 1.5s;
+    }
+
+    #icon5 {
+      width: 200px;
+      height: 200px;
+      animation-delay: 2s;
+    }
+
+    #icon6 {
+      width: 200px;
+      height: 200px;
+      animation-delay: 2.5s;
+    }
+
+    #icon7 {
+      width: 200px;
+      height: 200px;
+      animation-delay: 3s;
+    }
+
+    /* Posisi awal ikon - disesuaikan untuk pencar */
+    #icon1 {
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #icon2 {
+      top: 30%;
+      left: 70%;
+    }
+
+    #icon3 {
+      top: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #icon4 {
+      top: 40%;
+      left: 20%;
+    }
+
+    #icon5 {
+      top: 60%;
+      left: 80%;
+    }
+
+    #icon6 {
+      top: 10%;
+      left: 30%;
+    }
+
+    #icon7 {
+      top: 80%;
+      left: 70%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigasi -->
+  <nav aria-label="Menu Navigasi Utama">
+    <a href="profile.html">detail profile</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="#feedback">Umpan Balik</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <!-- Konten utama -->
+  <main class="container" id="home" role="main">
+    <!-- Kiri -->
+    <section class="content-left">
+      <h1>Anggi oktaviani</h1>
+      <p>
+      Saya mahasiswa Manajemen Informatika di Politeknik PGRI Banten, dengan minat besar pada teknologi informasi. Fokus saya adalah pengolahan data, pengembangan aplikasi, dan analisis sistem. Selama studi, saya mendalami:</p>
+      <p>- Pemrograman web & desktop
+- Basis data
+- Jaringan komputer
+- Desain UI/UX
+- Manajemen proyek TI</p>
+<p>Saya percaya teknologi adalah solusi masa depan untuk berbagai tantangan</p>
+      <a href="https://wa.me/6288212073466" class="btn-talk" aria-label="Mari berbincang">
+        Mari berbincang
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <!-- Kanan (Foto) -->
+    <section class="content-right" aria-label="Foto profil Anggi oktaviani">
+      <img src="anggi.png.png" alt="Foto anggi oktaviani tersenyum" />
+    </section>
+  </main>
+ <section id="danger" style="
+  text-align: center; 
+  padding: 40px 20px; 
+  color: #6b3e05; 
+  background-color: #f9f4e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px; 
+  margin: 40px auto; 
+  line-height: 1.6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(107, 62, 5, 0.2);
+">
+  <h2 style="font-weight: 600; margin-bottom: 15px;">remember!!!...</h2>
+  <p>Belajar bukan hanya tentang mendapatkan nilai, tapi tentang membentuk masa depan.</p>
+  <p>Setiap baris kode yang kamu pelajari, setiap sistem yang kamu pahami, adalah langkah menuju impianmu.</p>
+  <p>Jangan takut gagal—karena kegagalan adalah guru terbaik. Teruslah bertanya,</p>
+  <p>Ingat, dunia teknologi selalu berubah. Semangatmu hari ini adalah fondasi untuk menjadi ahli di masa depan.</p>
+  <p>Jadikan rasa penasaran sebagai bahan bakar, dan jadikan tujuanmu sebagai kompas.</p>
+</section>
+<section id="danger" style="
+  text-align: center; 
+  padding: 40px 20px; 
+  color: #6b3e05; 
+  background-color: #f9f4e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px; 
+  margin: 40px auto; 
+  line-height: 1.6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(107, 62, 5, 0.2);
+">
+  <div class="mi1624-container">
+    <div class="mi1624-text">MI1624</div>
+    <div class="mi1624-icon" id="icon1">
+      <img src="image copy.png" alt="Foto 1">
+    </div>
+    <div class="mi1624-icon" id="icon2">
+      <img src="bety.jpg.jpeg" alt="Foto 2">
+    </div>
+    <div class="mi1624-icon" id="icon3">
+      <img src="dapetmkn.jpeg" alt="Foto 3">
+    </div>
+    <div class="mi1624-icon" id="icon4">
+      <img src="image.png" alt="Foto 4">
+    </div>
+    <div class="mi1624-icon" id="icon5">
+      <img src="gopok.jpeg" alt="Foto 5">
+    </div>
+    <div class="mi1624-icon" id="icon6">
+      <img src="bukapc.jpeg" alt="Foto 6">
+    </div>
+    <div class="mi1624-icon" id="icon7">
+      <img src="love.jpeg" alt="Foto 7">
+    </div>
+  </div>
+</section>
+
+<script>
+  // Fungsi untuk membuat elemen draggable
+  function makeDraggable(element) {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    element.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - element.offsetLeft;
+      offsetY = e.clientY - element.offsetTop;
+      element.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        element.style.left = (e.clientX - offsetX) + 'px';
+        element.style.top = (e.clientY - offsetY) + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      element.style.cursor = 'grab';
+    });
+  }
+
+  // Terapkan pada semua ikon MI1624
+  const icons = document.querySelectorAll('.mi1624-icon');
+  icons.forEach(icon => makeDraggable(icon));
+</script>
+<section id="danger" style="
+  text-align: center; 
+  padding: 40px 20px; 
+  color: #6b3e05; 
+  background-color: #f9f4e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px; 
+  margin: 40px auto; 
+  line-height: 1.6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(107, 62, 5, 0.2);
+">
+    <h2>Wujudkan impian Anda menjadi profesional yang unggul dan berdaya saing global.</h2>
+    <p>Tunggu Apa Lagi?</p>
+    <a href="[LINK PENDAFTARAN]" style="font-size: 24px; font-weight: bold; color: #6b3e05; text-decoration: none;">
+        GABUNG SEKARANG!
+    </a>
+</section>
+
+<div style="text-align: center; margin-top: 40px; line-height: 1.8;">
+    <p style="font-weight: bold;">Perlu Informasi Lebih Lanjut? Hubungi kami:</p>
+    
+    <p>
+        <span style="font-weight: bold;">Email:</span> support@marketcodingan.id <br>
+        <span style="font-weight: bold;">Telepon:</span> +62 882-1207-3466 <br>
+        <span style="font-weight: bold;">Alamat:</span> Jl. Cilegon Timur, BANTEN
+    </p>
+
+    <p style="margin-top: 20px;">
+        <span style="font-weight: bold;">Ikuti Kami di Media Sosial:</span><br>
+        <a href="https://www.facebook.com/share/r/1SsedmofBs/">Facebook</a> | <a href="[Link Twitter]">Twitter</a> | <a href="[Link Instagram]">Instagram</a>
+    </p>
+</div>
+
+</body>
+</html>

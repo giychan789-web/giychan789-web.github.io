@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil Julia Sindoro</title>
+  <style>
+    /* Background gambar untuk body */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* Overlay semi-transparan untuk memperjelas teks */
+      position: relative;
+    }
+
+    /* Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.85);
+      pointer-events: none; /* supaya overlay tidak menghalangi klik */
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      color: #8B4513; /* warna coklat seperti contoh */
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      text-align: center;
+      font-style: italic;
+      font-weight: normal;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    td:first-child {
+      font-weight: bold;
+      padding: 8px 0;
+      border-bottom: 1px solid #8B4513;
+      vertical-align: top;
+      width: 30%;
+    }
+
+    td:last-child {
+      padding: 8px 0;
+      border-bottom: 1px solid #8B4513;
+      text-align: right;
+    }
+
+    button {
+      cursor:pointer;
+      background-color: white;
+      border: 1px solid #8B4513;
+      border-radius: 6px;
+      padding: 10px 20px;
+      color: #8B4513;
+      font-weight: bold;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8B4513;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ANGGI OKTAVIANI</h1>
+    <h3>Mahasiswa Manajemen Informatika</h3>
+    <p>
+     Saya adalah mahasiswa Manajemen Informatika di Politeknik PGRI Banten, dengan minat besar pada teknologi informasi. Saya fokus pada pengolahan data, pengembangan aplikasi, dan analisis sistem untuk mendukung solusi digital yang efektif dan efisien.
+    </p>
+
+    <table>
+      <tr>
+        <td>Nama</td>
+        <td>ANGGI OKTAVIANI</td>
+      </tr>
+      <tr>
+        <td>Usia</td>
+        <td>19 Tahun</td>
+      </tr>
+      <tr>
+        <td>Lokasi</td>
+        <td>SERANG,BANTEN, Indonesia</td>
+      </tr>
+      <tr>
+        <td>Keahlian</td>
+        <td>Perencanaan UI/UX, Analisis DATA, Konsultasi CODING</td>
+      </tr>
+      <tr>
+        <td>Pendidikan</td>
+        <td>D3 MENEJEMN INFORMATIKA, Politeknik PGRI Banten</td>
+      </tr>
+      <tr>
+        <td>Hobi</td>
+        <td>Menggambar, Tracking, Traveling</td>
+      </tr>
+    </table>
+
+    <button onclick="window.location.href='index.html';">Kembali ke Beranda</button>
+  </div>
+</body>
+</html>
